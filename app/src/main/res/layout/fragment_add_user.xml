@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.text.TextUtils"/>
+
+        <variable
+            name="viewmodel"
+            type="com.phablecare.phableassignment.viewmodel.SharedUserViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.phablecare.phableassignment.view.fragment.AddOrUpdateUserFragment" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/name"
+                app:errorEnabled="@{!TextUtils.isEmpty(viewmodel.userNameErrorMessage)}"
+                app:boxStrokeColor="@color/purple_500"
+                app:boxStrokeErrorColor="@android:color/holo_red_light"
+                app:errorTextColor="@android:color/holo_red_light"
+                app:hintTextColor="@color/purple_500"
+                app:layout_constraintBottom_toTopOf="@+id/tilMail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tieName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:text="@={viewmodel.inputName}"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/e_mail"
+                app:errorEnabled="@{!TextUtils.isEmpty(viewmodel.emailErrorMessage)}"
+                app:boxStrokeColor="@color/purple_500"
+                app:boxStrokeErrorColor="@android:color/holo_red_light"
+                app:errorTextColor="@android:color/holo_red_light"
+                app:hintTextColor="@color/purple_500"
+                app:layout_constraintBottom_toTopOf="@+id/btnAddOrUpdate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tieMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:text="@={viewmodel.inputEmail}"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddOrUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/add"
+                android:onClick="@{()->fragment.onAddOrUpdateEvent()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilMail" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
