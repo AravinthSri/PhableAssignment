@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="name_text_size">16sp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="user_list_item_height">100dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+</resources>

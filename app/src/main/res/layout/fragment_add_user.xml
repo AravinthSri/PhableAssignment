@@ -18,19 +18,19 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_10dp"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            >
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:hint="@string/name"
                 app:errorEnabled="@{!TextUtils.isEmpty(viewmodel.userNameErrorMessage)}"
                 app:boxStrokeColor="@color/purple_500"
@@ -62,7 +62,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_10dp"
                 android:hint="@string/e_mail"
                 app:errorEnabled="@{!TextUtils.isEmpty(viewmodel.emailErrorMessage)}"
                 app:boxStrokeColor="@color/purple_500"
